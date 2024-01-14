@@ -1,8 +1,13 @@
+import os
 import discord
 from discord.ext import tasks, commands
+from dotenv import load_dotenv
 
 intents = discord.Intents.default()
 intents.message_content = True
+
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 bot = commands.Bot(command_prefix='/', intents=intents)
 
@@ -90,4 +95,8 @@ async def clear_vc(args : tuple):
     for m in members:
         await disconnect_member(tuple([m]))
 
-bot.run('MTA5Mzk1OTg1ODU3Mjc1OTA5MQ.GFaVae.aPegfUeatUAgxbmvihy_sa4QxwpQbA9xjnPiIs')
+if __name__ == "__main__":
+    if TOKEN != "placeholder":
+        bot.run('MTA5Mzk1OTg1ODU3Mjc1OTA5MQ.GFaVae.aPegfUeatUAgxbmvihy_sa4QxwpQbA9xjnPiIs')
+    else:
+        raise Exception("No token passed for bot in .env file")

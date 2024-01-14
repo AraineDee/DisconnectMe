@@ -97,6 +97,6 @@ async def clear_vc(args : tuple):
 
 if __name__ == "__main__":
     if TOKEN != "placeholder":
-        bot.run('MTA5Mzk1OTg1ODU3Mjc1OTA5MQ.GFaVae.aPegfUeatUAgxbmvihy_sa4QxwpQbA9xjnPiIs')
+        bot.run(TOKEN)
     else:
         raise Exception("No token passed for bot in .env file")
